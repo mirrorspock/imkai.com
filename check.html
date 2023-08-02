@@ -18,8 +18,8 @@
 
     /* Style for the filled star */
     input[type="checkbox"]:checked + label::before {
-      content: "✔";
-      color: red;
+      content: "★";
+      color: gold;
     }
 
     /* Remove the gap between checkboxes */
@@ -32,17 +32,24 @@
       margin-bottom: 20px;
     }
 
-    /* Adjust layout for phone screens */
+    /* Adjust layout for narrow screens */
     @media (max-width: 600px) {
       body {
         text-align: center;
       }
 
+      /* Increase the font size of stars for narrow screens */
       input[type="checkbox"] + label::before {
         font-size: 32px;
       }
 
-      /* Add some spacing between checkboxes for phone screens */
+      /* Make checkboxes fill the width */
+      .checkbox-container {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      /* Add some spacing between checkboxes for narrow screens */
       input[type="checkbox"] + label {
         margin: 10px;
       }

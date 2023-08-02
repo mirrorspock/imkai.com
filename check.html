@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Cookie Checkmarks Example</title>
   <style>
@@ -9,7 +10,7 @@
     }
 
     /* Style for the empty star */
-    input[type="checkbox"] + label::before {
+    input[type="checkbox"]+label::before {
       content: "☆";
       font-size: 24px;
       margin-right: 5px;
@@ -17,18 +18,19 @@
     }
 
     /* Style for the filled star */
-    input[type="checkbox"]:checked + label::before {
+    input[type="checkbox"]:checked+label::before {
       content: "★";
       color: gold;
     }
 
     /* Remove the gap between checkboxes */
-    input[type="checkbox"] + label {
+    input[type="checkbox"]+label {
       display: inline-block;
       vertical-align: middle;
     }
 
     h1 {
+      text-align: center;
       margin-bottom: 20px;
     }
 
@@ -39,7 +41,7 @@
       }
 
       /* Increase the font size of stars for narrow screens */
-      input[type="checkbox"] + label::before {
+      input[type="checkbox"]+label::before {
         font-size: 32px;
       }
 
@@ -50,47 +52,81 @@
       }
 
       /* Add some spacing between checkboxes for narrow screens */
-      input[type="checkbox"] + label {
+      input[type="checkbox"]+label {
         margin: 10px;
       }
     }
+
+    /* Game-like styling */
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .checkbox-container {
+      border: 4px solid #444;
+      background-color: #eee;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    input[type="checkbox"]+label::before {
+      transition: transform 0.2s ease;
+    }
+
+    input[type="checkbox"]:hover+label::before {
+      transform: scale(1.2);
+    }
+
+    input[type="checkbox"]:checked+label::before {
+      transform: rotate(180deg) scale(1.2);
+    }
   </style>
 </head>
+
 <body>
   <h1>Kate</h1>
-  <input type="checkbox" id="check1" onclick="saveState(1)">
-  <label for="check1"></label>
-  <input type="checkbox" id="check2" onclick="saveState(2)">
-  <label for="check2"></label>
-  <input type="checkbox" id="check3" onclick="saveState(3)">
-  <label for="check3"></label>
-  <input type="checkbox" id="check4" onclick="saveState(4)">
-  <label for="check4"></label>
-  <input type="checkbox" id="check5" onclick="saveState(5)">
-  <label for="check5"></label>
+  <div class="checkbox-container">
+    <input type="checkbox" id="check1" onclick="saveState(1)">
+    <label for="check1"></label>
+    <input type="checkbox" id="check2" onclick="saveState(2)">
+    <label for="check2"></label>
+    <input type="checkbox" id="check3" onclick="saveState(3)">
+    <label for="check3"></label>
+    <input type="checkbox" id="check4" onclick="saveState(4)">
+    <label for="check4"></label>
+    <input type="checkbox" id="check5" onclick="saveState(5)">
+    <label for="check5"></label>
+  </div>
   <h1>Megan</h1>
-  <input type="checkbox" id="check6" onclick="saveState(6)">
-  <label for="check6"></label>
-  <input type="checkbox" id="check7" onclick="saveState(7)">
-  <label for="check7"></label>
-  <input type="checkbox" id="check8" onclick="saveState(8)">
-  <label for="check8"></label>
-  <input type="checkbox" id="check9" onclick="saveState(9)">
-  <label for="check9"></label>
-  <input type="checkbox" id="check10" onclick="saveState(10)">
-  <label for="check10"></label>
+  <div class="checkbox-container">
+    <input type="checkbox" id="check6" onclick="saveState(6)">
+    <label for="check6"></label>
+    <input type="checkbox" id="check7" onclick="saveState(7)">
+    <label for="check7"></label>
+    <input type="checkbox" id="check8" onclick="saveState(8)">
+    <label for="check8"></label>
+    <input type="checkbox" id="check9" onclick="saveState(9)">
+    <label for="check9"></label>
+    <input type="checkbox" id="check10" onclick="saveState(10)">
+    <label for="check10"></label>
+  </div>
   <h1>Nova</h1>
-  <input type="checkbox" id="check11" onclick="saveState(11)">
-  <label for="check11"></label>
-  <input type="checkbox" id="check12" onclick="saveState(12)">
-  <label for="check12"></label>
-  <input type="checkbox" id="check13" onclick="saveState(13)">
-  <label for="check13"></label>
-  <input type="checkbox" id="check14" onclick="saveState(14)">
-  <label for="check14"></label>
-  <input type="checkbox" id="check15" onclick="saveState(15)">
-  <label for="check15"></label>
-
+  <div class="checkbox-container">
+    <input type="checkbox" id="check11" onclick="saveState(11)">
+    <label for="check11"></label>
+    <input type="checkbox" id="check12" onclick="saveState(12)">
+    <label for="check12"></label>
+    <input type="checkbox" id="check13" onclick="saveState(13)">
+    <label for="check13"></label>
+    <input type="checkbox" id="check14" onclick="saveState(14)">
+    <label for="check14"></label>
+    <input type="checkbox" id="check15" onclick="saveState(15)">
+    <label for="check15"></label>
+  </div>
   <script>
     // Function to read the cookie value
     function readCookie(name) {
@@ -135,4 +171,5 @@
     loadSavedStates();
   </script>
 </body>
+
 </html>

@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Cookie Checkmarks Example</title>
-    <style>
+  <style>
     /* Hide default checkboxes */
     input[type="checkbox"] {
       display: none;
@@ -30,6 +30,22 @@
 
     h1 {
       margin-bottom: 20px;
+    }
+
+    /* Adjust layout for phone screens */
+    @media (max-width: 600px) {
+      body {
+        text-align: center;
+      }
+
+      input[type="checkbox"] + label::before {
+        font-size: 32px;
+      }
+
+      /* Add some spacing between checkboxes for phone screens */
+      input[type="checkbox"] + label {
+        margin: 10px;
+      }
     }
   </style>
 </head>
@@ -98,7 +114,7 @@
 
     // Function to load checkbox states from cookies
     function loadSavedStates() {
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 15; i++) {
         const savedState = readCookie(`check${i}`);
         if (savedState === 'checked') {
           document.getElementById(`check${i}`).checked = true;

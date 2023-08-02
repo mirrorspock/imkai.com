@@ -2,26 +2,71 @@
 <html>
 <head>
   <title>Cookie Checkmarks Example</title>
+    <style>
+    /* Hide default checkboxes */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    /* Style for the empty star */
+    input[type="checkbox"] + label::before {
+      content: "☆";
+      font-size: 24px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    /* Style for the filled star */
+    input[type="checkbox"]:checked + label::before {
+      content: "★";
+      color: gold;
+    }
+
+    /* Remove the gap between checkboxes */
+    input[type="checkbox"] + label {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
   <h1>Kate</h1>
   <input type="checkbox" id="check1" onclick="saveState(1)">
+  <label for="check1"></label>
   <input type="checkbox" id="check2" onclick="saveState(2)">
+  <label for="check2"></label>
   <input type="checkbox" id="check3" onclick="saveState(3)">
+  <label for="check3"></label>
   <input type="checkbox" id="check4" onclick="saveState(4)">
+  <label for="check4"></label>
   <input type="checkbox" id="check5" onclick="saveState(5)">
+  <label for="check5"></label>
   <h1>Megan</h1>
   <input type="checkbox" id="check6" onclick="saveState(6)">
+  <label for="check6"></label>
   <input type="checkbox" id="check7" onclick="saveState(7)">
+  <label for="check7"></label>
   <input type="checkbox" id="check8" onclick="saveState(8)">
+  <label for="check8"></label>
   <input type="checkbox" id="check9" onclick="saveState(9)">
+  <label for="check9"></label>
   <input type="checkbox" id="check10" onclick="saveState(10)">
+  <label for="check10"></label>
   <h1>Nova</h1>
   <input type="checkbox" id="check11" onclick="saveState(11)">
+  <label for="check11"></label>
   <input type="checkbox" id="check12" onclick="saveState(12)">
+  <label for="check12"></label>
   <input type="checkbox" id="check13" onclick="saveState(13)">
+  <label for="check13"></label>
   <input type="checkbox" id="check14" onclick="saveState(14)">
+  <label for="check14"></label>
   <input type="checkbox" id="check15" onclick="saveState(15)">
+  <label for="check15"></label>
 
   <script>
     // Function to read the cookie value

@@ -9,22 +9,22 @@
       display: none;
     }
 
-    /* Style for the empty star */
-    input[type="checkbox"]+label::before {
-      content: "☆";
-      font-size: 24px;
+    /* Style for the heart */
+    input[type="checkbox"] + label::before {
+      content: "♥";
+      font-size: 96px;
       margin-right: 5px;
       cursor: pointer;
     }
 
-    /* Style for the filled star */
-    input[type="checkbox"]:checked+label::before {
-      content: "★";
-      color: gold;
+    /* Style for the red X */
+    input[type="checkbox"]:checked + label::before {
+      content: "✕";
+      color: red;
     }
 
     /* Remove the gap between checkboxes */
-    input[type="checkbox"]+label {
+    input[type="checkbox"] + label {
       display: inline-block;
       vertical-align: middle;
     }
@@ -40,8 +40,8 @@
         text-align: center;
       }
 
-      /* Increase the font size of stars for narrow screens */
-      input[type="checkbox"]+label::before {
+      /* Increase the font size of symbols for narrow screens */
+      input[type="checkbox"] + label::before {
         font-size: 32px;
       }
 
@@ -52,7 +52,7 @@
       }
 
       /* Add some spacing between checkboxes for narrow screens */
-      input[type="checkbox"]+label {
+      input[type="checkbox"] + label {
         margin: 10px;
       }
     }
@@ -73,16 +73,12 @@
       margin: 0 auto;
     }
 
-    input[type="checkbox"]+label::before {
+    input[type="checkbox"] + label::before {
       transition: transform 0.2s ease;
     }
 
-    input[type="checkbox"]:hover+label::before {
+    input[type="checkbox"]:hover + label::before {
       transform: scale(1.2);
-    }
-
-    input[type="checkbox"]:checked+label::before {
-      transform: rotate(180deg) scale(1.2);
     }
   </style>
 </head>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookie Checkmarks Example</title>
+</head>
+<body>
+  <h1>Checkmarks</h1>
+  <input type="checkbox" id="check1" onclick="saveState(1)">
+  <input type="checkbox" id="check2" onclick="saveState(2)">
+  <input type="checkbox" id="check3" onclick="saveState(3)">
+  <input type="checkbox" id="check4" onclick="saveState(4)">
+  <input type="checkbox" id="check5" onclick="saveState(5)">
+
+  <script>
+    // Function to read the cookie value
+    function readCookie(name) {
+      const cookies = document.cookie.split(';');
+      for (const cookie of cookies) {
+        const [key, value] = cookie.split('=');
+        if (key.trim() === name) {
+          return decodeURIComponent(value.trim());
+        }
+      }
+      return null;
+    }
+
+    // Function to set the cookie value
+    function setCookie(name, value) {
+      const expirationDate = new Date();
+      expirationDate.setFullYear(expirationDate.getFullYear() + 1); // Expires in one year
+      const cookie = `${name}=${encodeURIComponent(value)}; expires=${expirationDate.toUTCString()}`;
+      document.cookie = cookie;
+    }
+
+    // Function to handle checkbox state changes and save them in cookies
+    function saveState(checkboxNumber) {
+      const checkbox = document.getElementById(`check${checkboxNumber}`);
+      const isChecked = checkbox.checked;
+      setCookie(`check${checkboxNumber}`, isChecked ? 'checked' : 'unchecked');
+    }
+
+    // Function to load checkbox states from cookies
+    function loadSavedStates() {
+      for (let i = 1; i <= 5; i++) {
+        const savedState = readCookie(`check${i}`);
+        if (savedState === 'checked') {
+          document.getElementById(`check${i}`).checked = true;
+        } else {
+          document.getElementById(`check${i}`).checked = false;
+        }
+      }
+    }
+
+    // Load saved checkbox states on page load
+    loadSavedStates();
+  </script>
+</body>
+</html>
